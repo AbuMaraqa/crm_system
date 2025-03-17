@@ -1,0 +1,17 @@
+
+/*************************************************
+ * Copyright (c) 2024.
+ * @Author: Shaker Awad <awadshaker74@gmail.com>
+ * @Date: 6/2/24, 9:34 AM.
+ * @Project: Jumla
+ ************************************************/
+
+.badge,.tag {
+    @apply inline-flex items-center justify-center px-2 py-1.5
+     text-xs font-inter tracking-wide align-baseline transition-all duration-200
+     leading-none rounded font-medium
+}
+
+.tag{
+    @apply cursor-pointer
+}

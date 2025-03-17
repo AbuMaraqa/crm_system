@@ -1,0 +1,11 @@
+
+/*************************************************
+ * Copyright (c) 2024.
+ * @Author: Shaker Awad <awadshaker74@gmail.com>
+ * @Date: 6/2/24, 9:34 AM.
+ * @Project: Jumla
+ ************************************************/
+
+.pagination {
+    @apply font-inter font-medium flex text-slate-600 dark:text-navy-100
+}

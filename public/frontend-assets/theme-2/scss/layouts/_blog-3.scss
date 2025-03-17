@@ -1,0 +1,65 @@
+/* blog-3 */
+.section-blog-3 {
+    .blog-3-card {
+        padding: 15px;
+        position: relative;
+        overflow: hidden;
+        border-radius: $radius-30;
+        border: 1px dashed $title-color;
+
+        &:hover {
+            .blog-contact {
+                background-color: rgba(255, 255, 255, 1);
+            }
+
+            .blog-img {
+                &:after {
+                    opacity: 1;                    
+                }
+            }
+        }
+
+        .blog-img {
+            position: relative;
+            border-radius: $radius-30;
+            overflow: hidden;
+            &:after {
+                @include ease3;
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: rgba(0, 0, 0, .3);
+                opacity: 0;
+            }
+            img {
+                width: 100%;
+            }
+        }
+
+        .blog-contact {
+            @include ease3;
+            padding-top: 15px;
+            background-color: rgba(255, 255, 255, .9);
+
+            span {
+                font-size: 13px;
+                color: $text-color;
+                text-transform: capitalize;
+            }
+
+            h4 {
+                font-size: 16px;
+
+                a {
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 1.3;
+                    color: $title-color;
+                }
+            }
+        }
+    }
+}

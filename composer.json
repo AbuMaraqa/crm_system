@@ -1,0 +1,136 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "andreiio/blade-iconoir": "^4.1",
+        "andreiio/blade-remix-icon": "^3.2",
+        "anhskohbo/no-captcha": "*",
+        "ariaieboy/filament-currency": "^1.2",
+        "astrotomic/laravel-translatable": "^11.13",
+        "codeat3/blade-clarity-icons": "^1.8",
+        "codeat3/blade-eos-icons": "^1.13",
+        "codeat3/blade-forkawesome": "^1.9",
+        "codeat3/blade-phosphor-icons": "^2.2",
+        "codeat3/blade-teeny-icons": "^1.10",
+        "codewithdennis/filament-select-tree": "^3.1",
+        "doctrine/dbal": "^3.8",
+        "dyrynda/laravel-cascade-soft-deletes": "^4.3",
+        "filament/forms": "^3.0",
+        "filament/infolists": "^3.0",
+        "filament/notifications": "^3.0",
+        "filament/spatie-laravel-media-library-plugin": "3.2",
+        "filament/tables": "^3.0",
+        "filament/widgets": "^3.0",
+        "guava/filament-clusters": "^1.1",
+        "guzzlehttp/guzzle": "^7.2",
+        "jackiedo/dotenv-editor": "*",
+        "jaocero/activity-timeline": "^1.2",
+        "jaocero/radio-deck": "^1.2",
+        "jenssegers/agent": "*",
+        "lab404/laravel-impersonate": "^1.7",
+        "laravel/framework": "^10.10",
+        "laravel/sanctum": "^3.3",
+        "laravel/tinker": "^2.8",
+        "laravolt/avatar": "^5.0",
+        "leandrocfe/filament-apex-charts": "3.1",
+        "livewire/livewire": "^3.5",
+        "maatwebsite/excel": "^3.1",
+        "malzariey/filament-daterangepicker-filter": "^2.3",
+        "mcamara/laravel-localization": "^1.8",
+        "mhmiton/laravel-modules-livewire": "^2.3",
+        "mohamedsabil83/filament-forms-tinyeditor": "^2.1",
+        "nwidart/laravel-modules": "^10.0",
+        "owenvoke/blade-fontawesome": "^2.4",
+        "phpsa/filament-password-reveal": "^2.0",
+        "plesk/ext-laravel-integration": "^7.0",
+        "predis/predis": "^2.2",
+        "ryangjchandler/blade-cache-directive": "^0.4.0",
+        "saade/blade-iconsax": "^1.2",
+        "saade/filament-fullcalendar": "^3.1",
+        "spatie/browsershot": "^3.60",
+        "spatie/laravel-activitylog": "^4.7",
+        "spatie/laravel-backup": "^8.5",
+        "spatie/laravel-medialibrary": "^10.7",
+        "spatie/laravel-permission": "^5.4",
+        "staudenmeir/belongs-to-through": "^2.13",
+        "staudenmeir/laravel-adjacency-list": "^1.13",
+        "tapp/filament-timezone-field": "^3.0",
+        "tareq-alqadi/filament-flatpickr": "*",
+        "tareq-alqadi/filament-map-picker": "*",
+        "webbingbrasil/filament-copyactions": "^3.0",
+        "ysfkaya/filament-phone-input": "^2.0"
+    },
+    "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.9",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^7.0",
+        "spatie/laravel-ignition": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Modules\\": "Modules/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "Modules/Core/Helpers/ModuleHelpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi",
+            "@php artisan filament:upgrade",
+            "npm run build:backend",
+            "npm run build:frontend"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "path",
+            "url": "Packages/*",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}

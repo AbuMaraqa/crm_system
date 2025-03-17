@@ -1,0 +1,6 @@
+{
+    "validation.phone": "The :attribute field must be a valid number.",
+    "App Copyright"   : "Copyright :year © <a href=':company_url' target='_blank' class='text-primary font-medium'>:company</a>. All rights reserved.",
+    "App Version"     : "Version :version"
+}
+

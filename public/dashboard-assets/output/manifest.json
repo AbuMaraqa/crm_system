@@ -1,0 +1,56 @@
+{
+  "resources/css/dashboard/admin-theme/app.css": {
+    "file": "assets/app-C-XV1IIA.css",
+    "src": "resources/css/dashboard/admin-theme/app.css",
+    "isEntry": true
+  },
+  "resources/css/dashboard/app.css": {
+    "file": "assets/app-tn0RQdqM.css",
+    "src": "resources/css/dashboard/app.css",
+    "isEntry": true
+  },
+  "resources/fonts/fontawesome/fa-brands-400.ttf": {
+    "file": "assets/fa-brands-400-C_FnhXFt.ttf",
+    "src": "resources/fonts/fontawesome/fa-brands-400.ttf"
+  },
+  "resources/fonts/fontawesome/fa-brands-400.woff2": {
+    "file": "assets/fa-brands-400-DGgeaIc2.woff2",
+    "src": "resources/fonts/fontawesome/fa-brands-400.woff2"
+  },
+  "resources/fonts/fontawesome/fa-regular-400.ttf": {
+    "file": "assets/fa-regular-400-D_4U4xH3.ttf",
+    "src": "resources/fonts/fontawesome/fa-regular-400.ttf"
+  },
+  "resources/fonts/fontawesome/fa-regular-400.woff2": {
+    "file": "assets/fa-regular-400-BZeDGO4g.woff2",
+    "src": "resources/fonts/fontawesome/fa-regular-400.woff2"
+  },
+  "resources/fonts/fontawesome/fa-solid-900.ttf": {
+    "file": "assets/fa-solid-900-BNO9VvVv.ttf",
+    "src": "resources/fonts/fontawesome/fa-solid-900.ttf"
+  },
+  "resources/fonts/fontawesome/fa-solid-900.woff2": {
+    "file": "assets/fa-solid-900-BVqQ4OpK.woff2",
+    "src": "resources/fonts/fontawesome/fa-solid-900.woff2"
+  },
+  "resources/fonts/fontawesome/fa-v4compatibility.ttf": {
+    "file": "assets/fa-v4compatibility-BMlqg2iP.ttf",
+    "src": "resources/fonts/fontawesome/fa-v4compatibility.ttf"
+  },
+  "resources/fonts/fontawesome/fa-v4compatibility.woff2": {
+    "file": "assets/fa-v4compatibility-CxX3iInv.woff2",
+    "src": "resources/fonts/fontawesome/fa-v4compatibility.woff2"
+  },
+  "resources/js/dashboard/admin-theme/app.js": {
+    "file": "assets/app-3JCHmPpT.js",
+    "name": "app",
+    "src": "resources/js/dashboard/admin-theme/app.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard/app.js": {
+    "file": "assets/app-l0sNRNKZ.js",
+    "name": "app",
+    "src": "resources/js/dashboard/app.js",
+    "isEntry": true
+  }
+}

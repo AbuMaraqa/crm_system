@@ -1,0 +1,23 @@
+{
+    "name": "shaker-awad/core",
+    "description": "",
+    "authors": [
+        {
+            "name": "Shaker Awad",
+            "email": "shakerawad96@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Core\\": ""
+        }
+    }
+}

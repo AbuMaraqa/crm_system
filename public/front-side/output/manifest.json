@@ -1,0 +1,153 @@
+{
+  "resources/css/front-side/theme-2/style.css": {
+    "file": "assets/style-DhluE5T5.css",
+    "src": "resources/css/front-side/theme-2/style.css",
+    "isEntry": true
+  },
+  "resources/fonts/Poppins/Poppins-Black.ttf": {
+    "file": "assets/Poppins-Black-yHqY0KRU.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Black.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-BlackItalic.ttf": {
+    "file": "assets/Poppins-BlackItalic-cm4Pcmzs.ttf",
+    "src": "resources/fonts/Poppins/Poppins-BlackItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Bold.ttf": {
+    "file": "assets/Poppins-Bold-qTAUjFF7.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Bold.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-BoldItalic.ttf": {
+    "file": "assets/Poppins-BoldItalic-DRcRqYlu.ttf",
+    "src": "resources/fonts/Poppins/Poppins-BoldItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ExtraBold.ttf": {
+    "file": "assets/Poppins-ExtraBold-W_qeO1XX.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ExtraBold.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ExtraBoldItalic.ttf": {
+    "file": "assets/Poppins-ExtraBoldItalic-C9zKPiZo.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ExtraBoldItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ExtraLight.ttf": {
+    "file": "assets/Poppins-ExtraLight-u2IJXg5c.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ExtraLight.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ExtraLightItalic.ttf": {
+    "file": "assets/Poppins-ExtraLightItalic-DV_5Lr0Z.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ExtraLightItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Light.ttf": {
+    "file": "assets/Poppins-Light-DT6-CsId.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Light.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-LightItalic.ttf": {
+    "file": "assets/Poppins-LightItalic-CDXp65eX.ttf",
+    "src": "resources/fonts/Poppins/Poppins-LightItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Medium.ttf": {
+    "file": "assets/Poppins-Medium-Cxde2ZoM.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Medium.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-MediumItalic.ttf": {
+    "file": "assets/Poppins-MediumItalic-C6e40Oak.ttf",
+    "src": "resources/fonts/Poppins/Poppins-MediumItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Regular.ttf": {
+    "file": "assets/Poppins-Regular-CTKNfV9P.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Regular.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-SemiBold.ttf": {
+    "file": "assets/Poppins-SemiBold-B_fPDAUb.ttf",
+    "src": "resources/fonts/Poppins/Poppins-SemiBold.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-SemiBoldItalic.ttf": {
+    "file": "assets/Poppins-SemiBoldItalic-1z_hA9Cm.ttf",
+    "src": "resources/fonts/Poppins/Poppins-SemiBoldItalic.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-Thin.ttf": {
+    "file": "assets/Poppins-Thin-leD9T1nx.ttf",
+    "src": "resources/fonts/Poppins/Poppins-Thin.ttf"
+  },
+  "resources/fonts/Poppins/Poppins-ThinItalic.ttf": {
+    "file": "assets/Poppins-ThinItalic-DeF98U39.ttf",
+    "src": "resources/fonts/Poppins/Poppins-ThinItalic.ttf"
+  },
+  "resources/fonts/quicksand/Quicksand-Bold.ttf": {
+    "file": "assets/Quicksand-Bold-CRBjWP5_.ttf",
+    "src": "resources/fonts/quicksand/Quicksand-Bold.ttf"
+  },
+  "resources/fonts/quicksand/Quicksand-Light.ttf": {
+    "file": "assets/Quicksand-Light-vueg2bmh.ttf",
+    "src": "resources/fonts/quicksand/Quicksand-Light.ttf"
+  },
+  "resources/fonts/quicksand/Quicksand-Medium.ttf": {
+    "file": "assets/Quicksand-Medium-ClxOSIMz.ttf",
+    "src": "resources/fonts/quicksand/Quicksand-Medium.ttf"
+  },
+  "resources/fonts/quicksand/Quicksand-Regular.ttf": {
+    "file": "assets/Quicksand-Regular-DwV0T0OO.ttf",
+    "src": "resources/fonts/quicksand/Quicksand-Regular.ttf"
+  },
+  "resources/fonts/quicksand/Quicksand-SemiBold.ttf": {
+    "file": "assets/Quicksand-SemiBold-DOhxUxE6.ttf",
+    "src": "resources/fonts/quicksand/Quicksand-SemiBold.ttf"
+  },
+  "resources/images/banner-four/1.png": {
+    "file": "assets/1-Bwz5L0LL.png",
+    "src": "resources/images/banner-four/1.png"
+  },
+  "resources/images/banner-four/banner-4.jpg": {
+    "file": "assets/banner-4-BOqwBBtG.jpg",
+    "src": "resources/images/banner-four/banner-4.jpg"
+  },
+  "resources/images/banner-four/left-shape.png": {
+    "file": "assets/left-shape-BXtDdQHc.png",
+    "src": "resources/images/banner-two/left-shape.png"
+  },
+  "resources/images/banner-four/right-shape.png": {
+    "file": "assets/right-shape-Ch9X1Y4a.png",
+    "src": "resources/images/banner-two/right-shape.png"
+  },
+  "resources/images/banner-three/lines.png": {
+    "file": "assets/lines-BFSlE1V_.png",
+    "src": "resources/images/banner-three/lines.png"
+  },
+  "resources/images/banner-two/banner.jpg": {
+    "file": "assets/banner-D-KFloSl.jpg",
+    "src": "resources/images/banner-two/banner.jpg"
+  },
+  "resources/images/banner-two/left-shape.png": {
+    "file": "assets/left-shape-BXtDdQHc.png",
+    "src": "resources/images/banner-two/left-shape.png"
+  },
+  "resources/images/banner-two/right-shape.png": {
+    "file": "assets/right-shape-Ch9X1Y4a.png",
+    "src": "resources/images/banner-two/right-shape.png"
+  },
+  "resources/images/category/top-shape.png": {
+    "file": "assets/top-shape-DMARcO7-.png",
+    "src": "resources/images/hero/top-shape.png"
+  },
+  "resources/images/hero/shape-1.png": {
+    "file": "assets/shape-1-dDYgpyDj.png",
+    "src": "resources/images/hero/shape-1.png"
+  },
+  "resources/images/hero/top-shape.png": {
+    "file": "assets/top-shape-DMARcO7-.png",
+    "src": "resources/images/hero/top-shape.png"
+  },
+  "resources/images/team/bottom-shape.png": {
+    "file": "assets/bottom-shape-U5yrskGR.png",
+    "src": "resources/images/team/bottom-shape.png"
+  },
+  "resources/images/team/top-shape.png": {
+    "file": "assets/top-shape-CSv3mQAt.png",
+    "src": "resources/images/team/top-shape.png"
+  },
+  "resources/js/front-side/app.js": {
+    "file": "assets/app-C2uqRdOn.js",
+    "name": "app",
+    "src": "resources/js/front-side/app.js",
+    "isEntry": true
+  }
+}

@@ -1,0 +1,17 @@
+
+/*************************************************
+ * Copyright (c) 2024.
+ * @Author: Shaker Awad <awadshaker74@gmail.com>
+ * @Date: 6/2/24, 9:34 AM.
+ * @Project: Jumla
+ ************************************************/
+
+@import "simplebar/dist/simplebar.min.css";
+
+.simplebar-scrollbar:before {
+  @apply bg-slate-300/80 dark:bg-navy-400;
+}
+
+.simplebar-content-wrapper {
+  @apply outline-none;
+}

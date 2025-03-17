@@ -1,0 +1,31 @@
+{
+    "name": "shaker-awad/shop",
+    "description": "",
+    "authors": [
+        {
+            "name": "Shaker Awad",
+            "email": "shakerawad96@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Shop\\": "",
+            "Modules\\Shop\\App\\": "app/",
+            "Modules\\Shop\\Database\\Factories\\": "database/factories/",
+            "Modules\\Shop\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Shop\\Tests\\": "tests/"
+        }
+    }
+}

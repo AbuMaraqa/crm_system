@@ -1,0 +1,11 @@
+{
+    "name": "FrontSide",
+    "alias": "frontside",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\FrontSide\\Providers\\FrontSideServiceProvider"
+    ],
+    "files": []
+}

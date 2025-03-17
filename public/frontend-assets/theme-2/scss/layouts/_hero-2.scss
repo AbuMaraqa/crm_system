@@ -1,0 +1,192 @@
+/* Hero */
+.section-hero-2 {
+    .hero-slider-2 {
+        position: relative;
+        .hero-img {
+            img {
+                width: 100%;
+                border-radius: $radius-30;
+            }
+            p {
+                padding: 10px 15px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: $bg-fff;
+                border-radius: 0 0 $radius-30 0;
+                font-weight: 500;
+                &:after {
+                    content: "";
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    top: 0;
+                    right: -28px;
+                    background-image: url("../img/hero/top-shape.png");
+                    z-index: 10;
+                    transform: rotate(180deg);
+                }
+                &:before {
+                    content: "";
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    top: 48px;
+                    left: 0;
+                    background-image: url("../img/hero/top-shape.png");
+                    z-index: 10;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        .hero-contact {
+            justify-content: space-between;
+            h2 {
+                margin-left: -100px;
+                padding-top: 50px;
+                font-size: 61px;
+                text-shadow: 
+                2px  2px     #fff, 
+                -2px  2px     #fff, 
+                2px -2px     #fff, 
+                -2px -2px     #fff,
+                2px  2px 5px #555;
+            }
+            .cat-card {
+                ul {
+                    width: 100%;
+                    margin: -12px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    li {
+                        width: calc(50% - 30px);
+                        margin: 12px;
+                        text-align: center;
+                        position: relative;
+                        
+                        &:hover {
+                            .detail {
+                                bottom: 5px;
+                                background-color: rgba(255, 255, 255, .9);
+                            p {
+                                opacity: 1;
+                            }
+                        }
+                        }
+                        img {
+                            width: 100%;
+                            border-radius: $radius-30;
+                        }
+                        a {
+                            font-size: 14px;
+                            font-weight: 400;
+                        }
+                        p {
+                            margin: 0;
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: $title-color;
+                        }
+                        .detail {
+                            @include ease3;
+                            width: calc(100% - 10px);
+                            position: absolute;
+                            left: 5px;
+                            bottom: -28px;
+                            background-color: rgba(255, 255, 255, 1);
+                            border-radius: $radius-30;
+                            p {
+                                @include ease3;
+                                opacity: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .swiper-pagination-bullet.swiper-pagination-bullet-active {
+            background-color: $primary;
+            width: 30px;
+        }
+        .swiper-pagination-bullet {
+            @include ease3;
+            width: 15px;
+            height: 15px;
+            margin: 0 2px !important;
+            display: inline-block;
+            border-radius: 0;
+            opacity: 1;
+            background-color: $title-color;
+            box-shadow: none;
+            border-radius: $radius-30;
+            border: 2px solid $bg-fff;
+        }
+        .swiper-pagination {
+            text-align: left;
+            left: 20px;
+        }
+    }
+}
+
+/* Responsive footer css */
+@media only screen and (max-width: 1399px) {
+    .section-hero-2 {
+        .hero-slider-2 {
+            .hero-contact {
+                h2 {
+                    font-size: 50px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1199px) {
+    .section-hero-2 {
+        .hero-slider-2 {
+            .hero-contact {
+                h2 {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+    .section-hero-2 {
+        .hero-slider-2 {
+            .hero-contact {
+                h2 {
+                    font-size: 36px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 575px) {
+    .section-hero-2 {
+        .hero-slider-2 {
+            .hero-contact {
+                h2 {
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 380px) {
+    .section-hero-2 {
+        .hero-slider-2 {
+            .hero-contact {
+                .cat-card {
+                    ul {
+                        flex-direction: column;
+                        li {
+                            width: calc(100% - 24px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

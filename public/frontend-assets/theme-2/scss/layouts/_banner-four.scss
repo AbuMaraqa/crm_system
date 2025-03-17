@@ -1,0 +1,149 @@
+/* Banner-two */
+
+.section-banner-four {
+
+    .banner-justify-box-contact {
+        width: 100%;
+        height: 500px;
+        min-height: 500px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        background-image: url("../img/banner-four/banner-4.jpg");
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        border-radius: $radius-30 $radius-30 0 $radius-30;
+        position: relative;
+        &:after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-image: url("../img/banner-four/1.png");
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .banner-four-box {
+        background-color: $bg-fff;
+        border-top-left-radius: $radius-30;
+        max-width: 400px;
+        padding: 30px 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        z-index: 5;
+        &:before {
+            content: "";
+            background-image: url('../img/banner-four/left-shape.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            z-index: 1;
+            left: -30px;
+            bottom: 0;
+        }
+
+        &:after {
+            content: "";
+            background-image: url('../img/banner-four/right-shape.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 30px;
+            width: 30px;
+            position: absolute;
+            z-index: 1;
+            right: 0;
+            top: -30px;
+            transform: rotate(270deg);
+        }
+
+        span {
+            font-size: 20px;
+            font-weight: 600;
+            color: $primary;
+        }
+
+        h4 {
+            margin-bottom: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            color: $title-color;
+        }
+    }
+}
+
+/* Responsive footer css */
+@media only screen and (max-width: 1399px) {
+    .section-banner-four {
+        .banner-four-box {
+            h4 {
+                font-size: 36px;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1199px) {
+    .section-banner-four {
+        max-height: 400px;
+        min-height: 400px;
+
+        .banner-four-box {
+            max-width: 300px;
+
+            span {
+                font-size: 18px;
+            }
+
+            h4 {
+                font-size: 28px;
+            }
+        }
+
+        .banner-justify-box-contact {
+            height: 400px;
+            min-height: 400px;
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .section-banner-four {
+        .banner-four-box {
+            max-width: 250px;
+
+            span {
+                font-size: 16px;
+            }
+
+            h4 {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .section-banner-four {
+        .banner-four-box {
+            margin: 0 auto;
+            border-top-right-radius: $radius-30;
+            &:after {
+                top: auto;
+                right: -30px;
+                bottom: 0;
+                transform: none;
+            }
+        }
+        .banner-justify-box-contact {
+            border-radius: $radius-30;
+        }
+    }
+}

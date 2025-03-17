@@ -1,0 +1,31 @@
+{
+    "name": "tareq-alqadi/frontside",
+    "description": "",
+    "authors": [
+        {
+            "name": "Tareq Al-Qadi",
+            "email": "alqadi.tareq199@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\FrontSide\\": "",
+            "Modules\\FrontSide\\App\\": "app/",
+            "Modules\\FrontSide\\Database\\Factories\\": "database/factories/",
+            "Modules\\FrontSide\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\FrontSide\\Tests\\": "tests/"
+        }
+    }
+}

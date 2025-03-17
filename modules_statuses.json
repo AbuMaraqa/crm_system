@@ -1,0 +1,15 @@
+{
+    "Dashboard": true,
+    "Core": true,
+    "TenantManager": true,
+    "HR": true,
+    "GeoLocation": true,
+    "AssetManagement": true,
+    "Money": true,
+    "TenantAssetManagement": true,
+    "Factory": true,
+    "TenantHR": true,
+    "FrontSide": true,
+    "Shop": false,
+    "Lead": true
+}

@@ -1,0 +1,30 @@
+/* category */
+.section-category-2 {
+    .bb-category-block-2 {
+        .bb-category-box {
+            padding: 15px;
+            margin-bottom: 1px;
+            border: 1px dashed $title-color;
+            border-radius: $radius-15;
+            .category-detail {
+                width: 100%;
+                background-color: $bg-box;
+                border: 1px solid $border-eee;
+                border-radius: $radius-15;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+                p {
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+}
+
+/* Responsive footer css */
+@media only screen and (max-width: 1399px) {
+   
+}
