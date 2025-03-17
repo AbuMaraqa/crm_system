@@ -38,5 +38,10 @@ Route::group([
         Route::prefix('statuses')->group(function () {
             Route::get('/', Status\Index::class)->name('statuses')->middleware('can:dashboard.lead.statuses');
         });
+
+        // Source Routes
+        Route::prefix('sources')->group(function () {
+            Route::get('/', Source\Index::class)->name('sources')->middleware('can:dashboard.lead.sources');
+        });
     });
 });

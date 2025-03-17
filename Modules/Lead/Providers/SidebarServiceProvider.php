@@ -32,9 +32,13 @@ class SidebarServiceProvider extends ServiceProvider
         $leadStatus = new SidebarGroup(2, ['dashboard.lead.statuses'], 'Lead Statuses', 'iconsax-bul-copyright');
         $leadStatus->addItem(new SidebarItem(1, ['dashboard.lead.statuses'], 'List Lead Statuses', 'dashboard.lead.statuses', 'iconsax-bul-copyright'));
 
+        $leadSources = new SidebarGroup(2, ['dashboard.lead.sources'], 'Lead Sources', 'iconsax-bul-copyright');
+        $leadSources->addItem(new SidebarItem(1, ['dashboard.lead.sources'], 'List Lead Sources', 'dashboard.lead.sources', 'iconsax-bul-copyright'));
+
         $sidebar->addItem($leadTag);
         $sidebar->addItem($leadDepartment);
         $sidebar->addItem($leadStatus);
+        $sidebar->addItem($leadSources);
 
     }
 }

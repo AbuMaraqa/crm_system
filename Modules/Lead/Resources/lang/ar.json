@@ -48,5 +48,19 @@
     "Edit Status"                : "تعديل حالة",
     "Delete Status"         : "حذف حالة",
     "Bulk Delete Statuses"    : "حذف الحالات بالجملة",
-    "Restore Status": "استعادة حالة"
+    "Restore Status": "استعادة حالة",
+
+    "Source" : "مصدر",
+    "Lead Sources" : "مصادر العملاء المحتملين",
+    "List Lead Sources" : "قائمة المصادر",
+    "Create Source" : "إنشاء مصدر",
+    "Delete Selected Sources" : "حذف المصادر المحددة",
+    "The source has been saved successfully."  : "تم حفظ مصدر بنجاح",
+    "View All Sources"             : "عرض جميع المصادر",
+    "View Single Source Details"    : "عرض تفاصيل مصدر",
+    "View Source"                 : "عرض مصدر",
+    "Edit Source"                : "تعديل مصدر",
+    "Delete Source"         : "حذف مصدر",
+    "Bulk Delete Sources"    : "حذف المصادر بالجملة",
+    "Restore Source": "استعادة مصدر"
 }
