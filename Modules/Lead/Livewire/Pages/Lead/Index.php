@@ -218,20 +218,9 @@ class Index extends Component implements HasForms, HasTable
     public function editAction(): mixed
     {
         return EditAction::make()
-            ->label(__('Create Department'))
-            ->modalHeading(__('Edit Department'))
-            ->modalWidth(MaxWidth::Small)
-            ->form([
-                TextInput::make('title')
-                    ->label(__('Title'))
-                    ->required(),
-                Select::make('person_responsible')
-                    ->label(__('Person Responsible'))
-                    ->options(User::all()->pluck('name', 'id'))
-                    ->required(),
-            ])
-            ->successRedirectUrl(route('dashboard.lead.departments'))
-            ->visible(fn(): bool => auth()->user()->can('dashboard.lead.departments.edit'))
+            ->url(fn(Lead $lead): string => route('dashboard.lead.leads.edit', $lead->id))
+            ->successRedirectUrl(route('dashboard.lead.leads'))
+            ->visible(fn(): bool => auth()->user()->can('dashboard.lead.leads.edit'))
             ->editActionCommonConfiguration();
     }
 
@@ -293,12 +282,12 @@ class Index extends Component implements HasForms, HasTable
      */
     public function render(): View
     {
-        return view('lead::livewire.pages.status.index')
+        return view('lead::livewire.pages.lead.index')
             ->layout(AppLayouts::class, [
-                'pageTitle'   => __('Lead Departments'),
+                'pageTitle'   => __('Lead Leads'),
                 'breadcrumbs' => [
                     route('dashboard.home')          => __('Home'),
-                    route('dashboard.lead.departments') => __('Lead Departments'),
+                    route('dashboard.lead.leads') => __('Lead Leads'),
                 ],
             ]);
     }
