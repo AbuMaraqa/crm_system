@@ -217,15 +217,13 @@ class Edit extends Component implements HasForms
         QueryContainer::make()
             ->wrap(function () {
                 $currentLocale = LaravelLocalization::getCurrentLocale();
+                $data          = $this->form->getState();
 
-                $formattedData = $data = $this->form->getState();
+                $lead = $this->lead;
 
-                $formattedData[$currentLocale]['created_by'] = auth()->id();
+                $data[$currentLocale]['created_by'] = $lead->translate($currentLocale)?->created_by ?? auth()->id();
 
-                $formattedData['status'] = '1';
-                $formattedData['sub_status'] = '1';
-
-                $lead = Lead::create($formattedData);
+                $lead->update($data);
 
                 Notification::make()
                     ->title(__('Saved Successfully.'))
