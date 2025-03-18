@@ -62,5 +62,22 @@
     "Edit Source"                : "تعديل مصدر",
     "Delete Source"         : "حذف مصدر",
     "Bulk Delete Sources"    : "حذف المصادر بالجملة",
-    "Restore Source": "استعادة مصدر"
+    "Restore Source": "استعادة مصدر",
+
+    "Lead" : "عميل",
+    "Basic Information" : "معلومات اساسية",
+    "Geo Location Details" : "تفاصيل الموقع الجغرافي",
+    "Business Name" : "اسم العمل",
+    "Lead Leads" : "عملاء المحتملين",
+    "List Lead Leads" : "قائمة العملاء المحتملين",
+    "Create Lead" : "إنشاء عميل",
+    "Delete Selected Leads" : "حذف العملاء المحتملين المحددة",
+    "The Lead has been saved successfully."  : "تم حفظ عميل بنجاح",
+    "View All Leads"             : "عرض جميع العملاء المحتملين",
+    "View Single Lead Details"    : "عرض تفاصيل عميل",
+    "View Lead"                 : "عرض عميل",
+    "Edit Lead"                : "تعديل عميل",
+    "Delete Lead"         : "حذف عميل",
+    "Bulk Delete Leads"    : "حذف العملاء المحتملين بالجملة",
+    "Restore Lead": "استعادة عميل"
 }

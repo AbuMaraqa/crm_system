@@ -43,5 +43,12 @@ Route::group([
         Route::prefix('sources')->group(function () {
             Route::get('/', Source\Index::class)->name('sources')->middleware('can:dashboard.lead.sources');
         });
+
+        // Source Routes
+        Route::prefix('leads')->group(function () {
+            Route::get('/', Lead\Index::class)->name('leads')->middleware('can:dashboard.lead.leads');
+            Route::get('/create', Lead\Create::class)->name('leads.create')->middleware('can:dashboard.lead.leads.create');
+            Route::get('{lead}/edit', Lead\Edit::class)->name('leads.edit')->middleware('can:dashboard.lead.leads.edit');
+        });
     });
 });
