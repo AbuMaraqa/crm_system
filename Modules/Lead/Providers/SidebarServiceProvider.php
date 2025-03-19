@@ -35,14 +35,19 @@ class SidebarServiceProvider extends ServiceProvider
         $leadSources = new SidebarGroup(2, ['dashboard.lead.sources'], 'Lead Sources', 'iconsax-bul-copyright');
         $leadSources->addItem(new SidebarItem(1, ['dashboard.lead.sources'], 'List Lead Sources', 'dashboard.lead.sources', 'iconsax-bul-copyright'));
 
-        $leadLeads = new SidebarGroup(2, ['dashboard.lead.leads'], 'Lead Leads', 'iconsax-bul-copyright');
+        $leadLeads = new SidebarGroup(2, ['dashboard.lead.leads','dashboard.lead.leads.create'], 'Lead Leads', 'iconsax-bul-copyright');
         $leadLeads->addItem(new SidebarItem(1, ['dashboard.lead.leads'], 'List Lead Leads', 'dashboard.lead.leads', 'iconsax-bul-copyright'));
+        $leadLeads->addItem(new SidebarItem(1, ['dashboard.lead.leads.create'], 'Create Lead', 'dashboard.lead.leads.create', 'iconsax-bul-copyright'));
+
+        $leadAvailableServices = new SidebarGroup(2, ['dashboard.lead.available_services'], 'Lead Available Services', 'iconsax-bul-copyright');
+        $leadAvailableServices->addItem(new SidebarItem(1, ['dashboard.lead.available_services'], 'List Lead Available Services', 'dashboard.lead.available_services', 'iconsax-bul-copyright'));
 
         $sidebar->addItem($leadTag);
         $sidebar->addItem($leadDepartment);
         $sidebar->addItem($leadStatus);
         $sidebar->addItem($leadSources);
         $sidebar->addItem($leadLeads);
+        $sidebar->addItem($leadAvailableServices);
 
     }
 }

@@ -79,5 +79,22 @@
     "Edit Lead"                : "تعديل عميل",
     "Delete Lead"         : "حذف عميل",
     "Bulk Delete Leads"    : "حذف العملاء المحتملين بالجملة",
-    "Restore Lead": "استعادة عميل"
+    "Restore Lead": "استعادة عميل",
+
+    "Available Service" : "خدمة متاحة",
+    "Start Date" : "تاريخ البدء",
+    "End Date" : "تاريخ النهاية",
+    "Available Services Plans" : "خطط خدمات المتاحة",
+    "Lead Available Services" : "خدمات العملاء المحتملين",
+    "List Lead Available Services" : "قائمة خدمات العملاء المحتملين",
+    "Create Available Service" : "إنشاء خدمة متاحة",
+    "Delete Selected Available Services" : "حذف الخدمات المحددة",
+    "The Available Service has been saved successfully."  : "تم حفظ خدمة متاحة بنجاح",
+    "View All Available Services"             : "عرض جميع الخدمات المتاحة",
+    "View Single Available Service Details"    : "عرض تفاصيل خدمة متاحة",
+    "View Available Service"                 : "عرض خدمة متاحة",
+    "Edit Available Service"                : "تعديل خدمة متاحة",
+    "Delete Available Service"         : "حذف خدمة متاحة",
+    "Bulk Delete Available Services"    : "حذف الخدمات المتاحة بالجملة",
+    "Restore Available Service": "استعادة خدمة متاحة"
 }

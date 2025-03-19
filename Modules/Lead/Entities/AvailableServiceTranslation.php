@@ -23,6 +23,7 @@ class AvailableServiceTranslation extends Model
      */
     protected $fillable = [
         'title',
+        'service_id'
     ];
 
     /**
@@ -37,8 +38,8 @@ class AvailableServiceTranslation extends Model
     {
         parent::boot();
 
-        static::creating(function (DepartmentTranslation $tagTranslation): void {
-            $tagTranslation->created_by = auth()->id();
+        static::creating(function (AvailableServiceTranslation $availableServiceTranslation): void {
+            $availableServiceTranslation->created_by = auth()->id();
         });
     }
 }

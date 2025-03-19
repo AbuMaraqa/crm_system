@@ -50,5 +50,10 @@ Route::group([
             Route::get('/create', Lead\Create::class)->name('leads.create')->middleware('can:dashboard.lead.leads.create');
             Route::get('{lead}/edit', Lead\Edit::class)->name('leads.edit')->middleware('can:dashboard.lead.leads.edit');
         });
+
+        // Available Service Routes
+        Route::prefix('available-services')->group(function () {
+            Route::get('/', AvailableService\Index::class)->name('available_services')->middleware('can:dashboard.lead.available_services');
+        });
     });
 });

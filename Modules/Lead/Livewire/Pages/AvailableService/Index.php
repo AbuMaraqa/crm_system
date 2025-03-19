@@ -7,12 +7,15 @@
  * @Project: Jumla
  ************************************************/
 
-namespace Modules\Lead\Livewire\Pages\Status;
+namespace Modules\Lead\Livewire\Pages\AvailableService;
 
+use App\Traits\DateTime;
 use Filament\Forms\Components\ColorPicker;
+use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -42,6 +45,7 @@ use Modules\Core\Filament\Forms\Components\Select;
 use Modules\Core\Filament\Tables\Actions\ActivitiesAction;
 use Modules\Core\Filament\Tables\Columns\EventAtColumn;
 use Modules\Core\View\Components\AppLayouts;
+use Modules\Lead\Entities\AvailableService;
 use Modules\Lead\Entities\Department;
 use Modules\Lead\Entities\Status;
 use Modules\Lead\Entities\Tag;
@@ -54,9 +58,9 @@ class Index extends Component implements HasForms, HasTable
     public function table($table)
     {
         return $table
-            ->heading(__('Lead Statuses'))
+            ->heading(__('Lead Available Services'))
             ->query(
-                Status::query()
+                AvailableService::with('availableServicePlans')
             )
             ->columns([
                 TextColumn::make('title')
@@ -75,8 +79,8 @@ class Index extends Component implements HasForms, HasTable
 
                 TextColumn::make('locale')
                     ->label(__('Available Languages'))
-                    ->state(function (Status $status) {
-                        return array_keys($status->getTranslationsArray());
+                    ->state(function (AvailableService $availableService) {
+                        return array_keys($availableService->getTranslationsArray());
                     })
                     ->alignCenter()
                     ->sortable(query: function (Builder $query): Builder {
@@ -85,11 +89,11 @@ class Index extends Component implements HasForms, HasTable
 
                 TextColumn::make('created_by')
                     ->label(__('Created By'))
-                    ->state(function (Status $status) {
-                        return $status->translateOrDefault()->user;
+                    ->state(function (AvailableService $availableService) {
+                        return $availableService->translateOrDefault()->user;
                     })
-                    ->formatStateUsing(function (Status $status) {
-                        return $status->translateOrDefault()->user->renderAsTableColumn();
+                    ->formatStateUsing(function (AvailableService $availableService) {
+                        return $availableService->translateOrDefault()->user->renderAsTableColumn();
                     })
                     ->html()
                     ->wrap(),
@@ -167,7 +171,7 @@ class Index extends Component implements HasForms, HasTable
                     }),
 
                 TrashedFilter::make()
-                    ->visible(auth()->user()->can('dashboard.lead.statuses.filters.trashed')),
+                    ->visible(auth()->user()->can('dashboard.lead.available_services.filters.trashed')),
             ])
             ->deferFilters()
             ->filtersFormMaxHeight('500px')
@@ -185,10 +189,10 @@ class Index extends Component implements HasForms, HasTable
             ->bulkActions([
                 BulkActionGroup::make([
                     DeleteBulkAction::make('DeleteBulkAction')
-                        ->modalHeading(__('Delete Selected Statuses'))
-                        ->visible(fn(): bool => auth()->user()->can('dashboard.lead.statuses.bulk_delete')),
+                        ->modalHeading(__('Delete Selected Available Services'))
+                        ->visible(fn(): bool => auth()->user()->can('dashboard.lead.available_services.bulk_delete')),
                 ])
-                    ->visible(fn(): bool => auth()->user()->canany(['dashboard.shop.statuses.bulk_delete'])),
+                    ->visible(fn(): bool => auth()->user()->canany(['dashboard.shop.available_services.bulk_delete'])),
 
             ])
             ->headerActions([
@@ -203,9 +207,9 @@ class Index extends Component implements HasForms, HasTable
     public function createAction(): CreateAction
     {
         return CreateAction::make('create')
-            ->label(__('Create Status'))
-            ->modalHeading(__('Create Status'))
-            ->modalWidth(MaxWidth::Large) // تأكد من استيراد MaxWidth
+            ->label(__('Create Available Service'))
+            ->modalHeading(__('Create Available Service'))
+            ->modalWidth(MaxWidth::Large)
             ->form([
                 Grid::make()
                     ->columns([
@@ -217,25 +221,8 @@ class Index extends Component implements HasForms, HasTable
                             ->label(__('Title'))
                             ->columnSpan(4)
                             ->required(),
-                        Select::make('department_id')
-                            ->label(__('Department'))
-                            ->columnSpan(4)
-                            ->options(fn() => Department::with('translations')->get()->pluck('title', 'id')->toArray())                            ->required(),
-                        TextInput::make('sort')
-                            ->label(__('Sort'))
-                            ->columnSpan(4)
-                            ->numeric()
-                            ->required(),
-                        ColorPicker::make('background_color')
-                            ->label(__('Background Color'))
-                            ->columnSpan(6)
-                            ->required(),
-                        ColorPicker::make('text_color')
-                            ->label(__('Text Color'))
-                            ->columnSpan(6)
-                            ->required(),
-                            Repeater::make('subStatuses')
-                            ->label(__('Sub Statuses'))
+                            Repeater::make('availableServicesPlans')
+                            ->label(__('Available Services Plans'))
                             ->columnSpan(12)
                             ->defaultItems(1)
                             ->schema([
@@ -249,40 +236,41 @@ class Index extends Component implements HasForms, HasTable
                                             ->label(__('Title'))
                                             ->columnSpan(12)
                                             ->required(),
-                                        ColorPicker::make('background_color')
-                                            ->label(__('Background Color'))
-                                            ->columnSpan(4)
-                                            ->required(),
-                                        ColorPicker::make('text_color')
-                                            ->label(__('Text Color'))
-                                            ->columnSpan(4)
-                                            ->required(),
-                                        TextInput::make('sort')
-                                            ->label(__('Sort'))
+                                        TextInput::make('price')
+                                            ->label(__('Price'))
                                             ->columnSpan(4)
                                             ->numeric()
+                                            ->required(),
+                                        DateTimePicker::make('start_date')
+                                            ->label(__('Start Date'))
+                                            ->columnSpan(4)
+                                            ->required(),
+                                        DateTimePicker::make('end_date')
+                                            ->label(__('End Date'))
+                                            ->columnSpan(4)
+                                            ->required(),
+                                        Textarea::make('description')
+                                            ->label(__('Description'))
+                                            ->columnSpan(12)
                                             ->required(),
                                     ])
                             ])
                     ])
             ])
             ->using(function (array $data) {
+                $availableService = AvailableService::create($data);
 
-                // Create the Status (this won't execute until you remove dd())
-                $status = Status::create($data);
-
-                // Create SubStatuses if they exist in the data
-                if (isset($data['subStatuses'])) {
-                    foreach ($data['subStatuses'] as $subStatusData) {
-                        $subStatusData['status_id'] = $status->id;
-                        $status->subStatuses()->create($subStatusData);
+                if (isset($data['availableServicesPlans']) && count($data['availableServicesPlans']) > 0) {
+                    foreach ($data['availableServicesPlans'] as $availableServicesPlan) {
+                        $availableServicesPlan['service_id'] = $availableService->id;
+                        $availableService->availableServicePlans()->create($availableServicesPlan);
                     }
                 }
 
-                return $status;
+                return $availableService;
             })
-            ->successRedirectUrl(route('dashboard.lead.statuses'))
-            ->visible(fn(): bool => auth()->user()->can('dashboard.lead.statuses.create'))
+            ->successRedirectUrl(route('dashboard.lead.available_services'))
+            ->visible(fn(): bool => auth()->user()->can('dashboard.lead.available_services.create'))
             ->extraAttributes([
                 'class' => 'fi-ta-create-action-btn',
             ]);
@@ -308,73 +296,59 @@ class Index extends Component implements HasForms, HasTable
                         ->label(__('Title'))
                         ->columnSpan(4)
                         ->required(),
-                    Select::make('department_id')
-                        ->label(__('Department'))
-                        ->columnSpan(4)
-                        ->options(fn() => Department::with('translations')->get()->pluck('title', 'id')->toArray())
-                        ->required(),
-                    TextInput::make('sort')
-                        ->label(__('Sort'))
-                        ->columnSpan(4)
-                        ->numeric()
-                        ->required(),
-                    ColorPicker::make('background_color')
-                        ->label(__('Background Color'))
-                        ->columnSpan(6)
-                        ->required(),
-                    ColorPicker::make('text_color')
-                        ->label(__('Text Color'))
-                        ->columnSpan(6)
-                        ->required(),
-                    Repeater::make('subStatuses')
-                        ->label(__('Sub Statuses'))
+                    Repeater::make('availableServicePlans')
+                        ->label(__('Available Services Plans'))
                         ->columnSpan(12)
-                        ->relationship() // Enable relationship handling
                         ->defaultItems(1)
+                        ->relationship()
                         ->schema([
                             Grid::make()
-                                ->columns(12)
+                                ->columns([
+                                    'default' => 12,
+                                    'lg'      => 12,
+                                ])
                                 ->schema([
                                     TextInput::make('title')
                                         ->label(__('Title'))
                                         ->columnSpan(12)
                                         ->required(),
-                                    ColorPicker::make('background_color')
-                                        ->label(__('Background Color'))
-                                        ->columnSpan(4)
-                                        ->required(),
-                                    ColorPicker::make('text_color')
-                                        ->label(__('Text Color'))
-                                        ->columnSpan(4)
-                                        ->required(),
-                                    TextInput::make('sort')
-                                        ->label(__('Sort'))
+                                    TextInput::make('price')
+                                        ->label(__('Price'))
                                         ->columnSpan(4)
                                         ->numeric()
                                         ->required(),
+                                    DateTimePicker::make('start_date')
+                                        ->label(__('Start Date'))
+                                        ->columnSpan(4)
+                                        ->required(),
+                                    DateTimePicker::make('end_date')
+                                        ->label(__('End Date'))
+                                        ->columnSpan(4)
+                                        ->required(),
+                                    Textarea::make('description')
+                                        ->label(__('Description'))
+                                        ->columnSpan(12)
+                                        ->required(),
                                 ])
                         ])
-
                 ])
         ])
-        ->successRedirectUrl(route('dashboard.lead.statuses'))
-        ->visible(fn(): bool => auth()->user()->can('dashboard.lead.statuses.edit'))
+        ->successRedirectUrl(route('dashboard.lead.available_services'))
+        ->visible(fn(): bool => auth()->user()->can('dashboard.lead.available_services.edit'))
         ->editActionCommonConfiguration()
-        ->using(function (Status $record, array $data) {
-            // Update the main status
+        ->using(function (AvailableService $record, array $data) {
             $record->update($data);
 
-            if (isset($data['subStatuses'])) {
-                foreach ($data['subStatuses'] as $subStatusData) {
-                    if (isset($subStatusData['id'])) {
-                        // Update existing sub-status
-                        $subStatus = $record->subStatuses()->find($subStatusData['id']);
-                        if ($subStatus) {
-                            $subStatus->update($subStatusData);
+            if (isset($data['availableServicesPlans']) && count($data['availableServicesPlans']) > 0) {
+                foreach ($data['availableServicesPlans'] as $availableServicesPlan) {
+                    if (isset($availableServicesPlan['id'])) {
+
+                        $availableService = $record->availableServicePlans()->find($availableServicesPlan['id']);
+                        if ($availableService) {
+                            $availableService->update($availableServicesPlan);
                         }
                     } else {
-                        // Create new sub-status
-                        $record->subStatuses()->create($subStatusData);
+                        $record->availableServicePlans()->create($availableServicesPlan);
                     }
                 }
             }
@@ -386,8 +360,8 @@ class Index extends Component implements HasForms, HasTable
     public function viewAction()
     {
         return ViewAction::make('view')
-            ->visible(fn(): bool => auth()->user()->can('dashboard.lead.statuses.view'))
-            ->modalHeading(__('View Status Details'))
+            ->visible(fn(): bool => auth()->user()->can('dashboard.lead.available_services.view'))
+            ->modalHeading(__('View Available Service Details'))
             ->modalWidth(MaxWidth::TwoExtraLarge)
             ->form([
                 Grid::make()
@@ -398,12 +372,7 @@ class Index extends Component implements HasForms, HasTable
                     ->schema([
                         TextInput::make('title')
                             ->label(__('Title'))
-                            ->columnSpan(6),
-
-                        Select::make('person_responsible')
-                            ->label(__('Person Responsible'))
-                            ->options(User::all()->pluck('name', 'id'))
-                            ->required(),
+                            ->columnSpan(12),
                     ]),
             ])
             ->viewActionCommonConfiguration();
@@ -416,9 +385,9 @@ class Index extends Component implements HasForms, HasTable
     public function deleteAction(): mixed
     {
         return DeleteAction::make()
-            ->modalHeading(__('Delete Status'))
-            ->visible(function (Status $status): bool {
-                return auth()->user()->can('dashboard.lead.statuses.delete') && !$status->deleted_at;
+            ->modalHeading(__('Delete Available Service'))
+            ->visible(function (AvailableService $availableService): bool {
+                return auth()->user()->can('dashboard.lead.available_services.delete') && !$availableService->deleted_at;
             })
             ->deleteActionCommonConfiguration();
     }
@@ -429,9 +398,9 @@ class Index extends Component implements HasForms, HasTable
     public function restoreAction(): mixed
     {
         return RestoreAction::make()
-            ->modalHeading(__('Restore Status'))
-            ->visible(function (Status $status): bool {
-                return auth()->user()->can('dashboard.lead.statuses.restore') && $status->deleted_at;
+            ->modalHeading(__('Restore Available Service'))
+            ->visible(function (AvailableService $availableService): bool {
+                return auth()->user()->can('dashboard.lead.available_services.restore') && $availableService->deleted_at;
             })
             ->restoreActionCommonConfiguration();
     }
@@ -441,12 +410,12 @@ class Index extends Component implements HasForms, HasTable
      */
     public function render(): View
     {
-        return view('lead::livewire.pages.status.index')
+        return view('lead::livewire.pages.available-service.index')
             ->layout(AppLayouts::class, [
-                'pageTitle'   => __('Lead Statuses'),
+                'pageTitle'   => __('Lead Available Services'),
                 'breadcrumbs' => [
                     route('dashboard.home')          => __('Home'),
-                    route('dashboard.lead.statuses') => __('Lead Statuses'),
+                    route('dashboard.lead.available_services') => __('Lead Available Services'),
                 ],
             ]);
     }

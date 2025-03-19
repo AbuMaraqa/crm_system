@@ -14,15 +14,16 @@ use Modules\Core\Custom\Query\Traits\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\Core\Entities\User;
 
-class DepartmentTranslation extends Model
+class AvailableServicePlanTranslation extends Model
 {
-    protected $table = 'lead_departments_translations';
+    protected $table = 'lead_available_services_plans_translations';
 
     /**
      * The attributes that are mass assignable.
      */
     protected $fillable = [
         'title',
+        'description',
     ];
 
     /**
@@ -37,8 +38,8 @@ class DepartmentTranslation extends Model
     {
         parent::boot();
 
-        static::creating(function (DepartmentTranslation $tagTranslation): void {
-            $tagTranslation->created_by = auth()->id();
+        static::creating(function (AvailableServicePlanTranslation $availableServicePlanTranslation): void {
+            $availableServicePlanTranslation->created_by = auth()->id();
         });
     }
 }

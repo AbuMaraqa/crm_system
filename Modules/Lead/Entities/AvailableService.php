@@ -12,6 +12,7 @@ namespace Modules\Lead\Entities;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Modules\Core\Contracts\ActivityLogsContract;
 use Modules\Core\Custom\ActivityLog\Traits\LogsActivity;
 use Modules\Core\Custom\Query\Traits\SoftDeletes;
@@ -38,10 +39,13 @@ class AvailableService extends Model implements ActivityLogsContract, Translatab
     /**
      * The attributes that are mass assignable.
      */
-    protected $guarded = [];
+    protected $fillable = [
+        'id'
+    ];
 
     public array $translatedAttributes = [
         'title',
+        'service_id'
     ];
 
     /**
@@ -67,12 +71,17 @@ class AvailableService extends Model implements ActivityLogsContract, Translatab
 
     public function getRecordUrl(): ?string
     {
-        return route('dashboard.lead.departments.edit', $this->id);
+        return route('dashboard.lead.available_services.edit', $this->id);
     }
 
 
     public function getTitle(): string
     {
         return $this->translateOrDefault()->title;
+    }
+
+    public function availableServicePlans(): HasMany
+    {
+        return $this->hasMany(AvailableServicePlan::class , 'service_id');
     }
 }

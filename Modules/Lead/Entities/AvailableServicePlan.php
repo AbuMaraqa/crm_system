@@ -19,7 +19,7 @@ use Modules\Core\Custom\ActivityLog\Traits\LogsActivity;
 use Modules\Core\Custom\Query\Traits\SoftDeletes;
 use Spatie\Activitylog\LogOptions;
 
-class Department extends Model implements ActivityLogsContract, TranslatableContract
+class AvailableServicePlan extends Model implements ActivityLogsContract, TranslatableContract
 {
     use LogsActivity;
     use SoftDeletes;
@@ -28,24 +28,28 @@ class Department extends Model implements ActivityLogsContract, TranslatableCont
     /**
      * @var string
      */
-    protected $table = 'lead_departments';
+    protected $table = 'lead_available_services_plans';
 
     /**
      * @var bool
      */
     public $useTranslationFallback = true;
 
-    public $translationForeignKey = 'department_id';
+    public $translationForeignKey = 'plan_id';
 
     /**
      * The attributes that are mass assignable.
      */
     protected $fillable = [
-        'person_responsible',
+        'service_id',
+        'price',
+        'start_date',
+        'end_date',
     ];
 
     public array $translatedAttributes = [
         'title',
+        'description',
     ];
 
     /**
@@ -54,10 +58,10 @@ class Department extends Model implements ActivityLogsContract, TranslatableCont
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-            ->useLogName('Departments')
+            ->useLogName('Available Services')
             ->dontSubmitEmptyLogs()
             ->logFillable()
-            ->setDescriptionForEvent(fn(string $eventName) => "Tag [ID: {$this->id}, Title: {$this->getTitle()}] has been {$eventName}")
+            ->setDescriptionForEvent(fn(string $eventName) => "Available Service [ID: {$this->id}, Title: {$this->getTitle()}] has been {$eventName}")
             ->dontLogIfAttributesChangedOnly(['updated_at']);
     }
 
@@ -71,7 +75,7 @@ class Department extends Model implements ActivityLogsContract, TranslatableCont
 
     public function getRecordUrl(): ?string
     {
-        return route('dashboard.lead.departments.edit', $this->id);
+        return route('dashboard.lead.available_services.edit', $this->id);
     }
 
 
